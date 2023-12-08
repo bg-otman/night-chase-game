@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Creepster&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="images/wolf.png" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Night Chase | game</title>
+  </head>
+  <body>
+    <div class="container">
+      <canvas id="myCanvas" width="1000" height="500"></canvas>
+      <div class="music sound-on">
+        Game Music
+        <img id="musicIcon" src="images/volume.png" alt="image" />
+      </div>
+    </div>
+
+    <img src="images/player.png" alt="image" id="playerImg" />
+    <img src="images/layer-forest-1.png" alt="image" id="layer1" />
+    <img src="images/layer-forest-2.png" alt="image" id="layer2" />
+    <img src="images/layer-forest-3.png" alt="image" id="layer3" />
+    <img src="images/layer-forest-4.png" alt="image" id="layer4" />
+    <img src="images/layer-forest-5.png" alt="image" id="layer5" />
+    <img src="images/enemy_fly.png" alt="image" id="enemy_fly" />
+    <img src="images/enemy_spider_big.png" alt="image" id="enemy_spider" />
+    <img src="images/enemy_ground_zombie.png" alt="image" id="enemy_ground" />
+    <img src="images/fire.png" alt="image" id="fire" />
+    <img src="images/boom.png" alt="image" id="boom" />
+    <img src="images/lives.png" alt="image" id="lives" />
+
+    <!-- start game -->
+    <div class="start-game">
+      <div class="container2">
+        <div>
+          <span class="game-name"> Night Chase</span>
+          <img src="images/wolf.png" alt="image" />
+        </div>
+        <button>Start game</button>
+      </div>
+      <div class="how-to-play">
+        <img src="images/Keyboard-moves.png" alt="image" />
+        <div class="info">
+          <p>Flying enemies can be killed by fire roll, +1</p>
+          <p>Spider & ground enemies can be killed by the special move, +2</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="scripts/main.js" type="module"></script>
+  </body>
+</html>

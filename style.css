@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #333;
+}
+
+img {
+  display: none;
+}
+
+#myCanvas {
+  font-family: Creepster;
+  border: 3px solid black;
+  background-image: url(images/bg-start.jpg);
+}
+.container {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.start-game {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  top: 40%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.start-game button {
+  padding: 15px 25px;
+  cursor: pointer;
+  font-size: 30px;
+  font-family: Creepster;
+  background-color: aliceblue;
+  transition: 0.3s;
+}
+.start-game button:hover {
+  background-color: rgb(218, 62, 62);
+}
+
+.container2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.container2 img {
+  display: block;
+  margin-bottom: 5px;
+}
+.container2 div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.game-name {
+  font-size: 40px;
+  font-family: Creepster;
+  text-shadow: 4px 4px 15px #333;
+}
+
+.music img,
+.how-to-play img {
+  display: block;
+}
+.music {
+  color: whitesmoke;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-family: Creepster;
+  font-size: 20px;
+  cursor: pointer;
+  top: 20px;
+  right: 20px;
+  text-shadow: 4px 2px 15px #333;
+}
+
+.how-to-play,
+.how-to-play .info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.how-to-play {
+  position: absolute;
+  bottom: -150px;
+  gap: 10px;
+}
+
+.how-to-play .info {
+  font-weight: bold;
+  color: rgb(99, 0, 0);
+  font-family: cursive;
+}
