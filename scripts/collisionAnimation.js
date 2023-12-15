@@ -15,8 +15,7 @@ export class CollisionAnimation {
     this.fps = Math.random() * 10 + 5;
     this.frameInterval = 1000 / this.fps;
     this.frameTimer = 0;
-    this.gameMusic = new Audio();
-    this.gameMusic.src = "../sounds/strong-hit.mp3";
+    this.gameMusic = new Audio("../sounds/strong-hit.mp3");
   }
   draw(ctx) {
     ctx.drawImage(
@@ -30,7 +29,11 @@ export class CollisionAnimation {
       this.width,
       this.height
     );
-    if (this.game.soundOn) this.gameMusic.play();
+    if (this.game.soundOn) {
+      this.gameMusic.addEventListener('canplaythrough', function() {
+    this.gameMusic.play();
+}, false);
+    }
   }
   update(deltaTime) {
     this.x -= this.game.speed;
