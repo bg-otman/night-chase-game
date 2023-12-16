@@ -146,8 +146,11 @@ export class Diving extends State {
     this.game.player.frameY = 6;
     this.game.player.maxFrame = 6;
     this.game.player.vy = 15;
-    this.divingSound = new Audio();
-    this.divingSound.src = "../sounds/special-move-sound.mp3";
+    this.divingSound = new Audio("../sounds/special-move-sound.mp3");
+
+    this.divingSound.addEventListener("canplaythrough", () => {
+      if (this.game.soundOn) this.divingSound.play();
+    });
   }
   handleInput(inputs) {
     this.game.particles.unshift(
@@ -172,8 +175,6 @@ export class Diving extends State {
         );
       }
     }
-
-    if (this.game.soundOn) this.divingSound.play();
   }
 }
 

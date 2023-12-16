@@ -129,7 +129,7 @@ window.addEventListener("load", () => {
     .querySelector(".start-game button")
     .addEventListener("click", function () {
       document.querySelector(".start-game").style.display = "none";
-      gameMusic();
+      playGameMusic();
       animate(0);
     });
 
@@ -154,33 +154,54 @@ window.addEventListener("load", () => {
   }
 
   // music
+  const MUSIC_PATH = "../sounds/game-music.mp3";
+  const VOLUME_IMAGE_PATH = "../images/volume.png";
+  const MUTE_IMAGE_PATH = "../images/mute.png";
+
   const music = document.querySelector(".music");
   const musicIcon = document.querySelector(".music img");
-  const musicGame = new Audio("../sounds/game-music.mp3");
+  const musicPlayer = new Audio(MUSIC_PATH);
 
   music.addEventListener("click", function () {
-    this.classList.toggle("sound-on");
+    toggleSound();
+    updateSoundIcons();
+  });
 
-    if (this.classList.contains("sound-on")) {
-      musicIcon.src = "../images/volume.png";
+  musicPlayer.addEventListener("ended", function () {
+    resetMusicPlayer();
+  });
+
+  function toggleSound() {
+    music.classList.toggle("sound-on");
+
+    if (music.classList.contains("sound-on")) {
       game.soundOn = true;
-      if (game.soundOn) gameMusic().play();
+      if (game.soundOn) playGameMusic();
     } else {
-      musicIcon.src = "../images/mute.png";
       game.soundOn = false;
-
-      if (!game.soundOn) gameMusic().pause();
+      if (!game.soundOn) pauseGameMusic();
     }
-  });
-
-  function gameMusic() {
-    if (game.soundOn && musicGame.currentTime <= 0) {
-      musicGame.play();
-    }
-    return musicGame;
   }
-  musicGame.addEventListener("ended", function () {
-    this.currentTime = 0;
-    this.play();
-  });
+
+  function updateSoundIcons() {
+    musicIcon.src = game.soundOn ? VOLUME_IMAGE_PATH : MUTE_IMAGE_PATH;
+  }
+
+  function playGameMusic() {
+    if (game.soundOn) {
+      musicPlayer.play().catch((error) => {
+        console.error("Error playing music:", error);
+      });
+    }
+  }
+
+  function pauseGameMusic() {
+    musicPlayer.pause();
+  }
+
+  function resetMusicPlayer() {
+    musicPlayer.currentTime = 0;
+    playGameMusic();
+  }
+  ///
 });
