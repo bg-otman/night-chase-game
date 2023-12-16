@@ -154,13 +154,12 @@ window.addEventListener("load", () => {
   }
 
   // music
-  const MUSIC_PATH = "../sounds/game-music.mp3";
   const VOLUME_IMAGE_PATH = "../images/volume.png";
   const MUTE_IMAGE_PATH = "../images/mute.png";
 
   const music = document.querySelector(".music");
   const musicIcon = document.querySelector(".music img");
-  const musicPlayer = new Audio(MUSIC_PATH);
+  const musicPlayer = document.querySelector(".music-player");
 
   music.addEventListener("click", function () {
     toggleSound();
