@@ -34,3 +34,5 @@
 -----------------------------------------------------
 Inspired by @FranksLaboratory.
 Game assets From this website: https://bevouliin.com/
+
+Try it from Here : https://night-chase-game.000webhostapp.com/
